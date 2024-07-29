@@ -1,0 +1,62 @@
+<div class="shadow">
+    @if(isEdit){
+        <h4> Update User</h4>
+    }
+    @else {
+        <h4>Create User</h4>    
+    }
+    
+    <form [formGroup]="userform" (ngSubmit)="save()">
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+              <mat-label>User Name</mat-label>
+              <input matInput placeholder="user_name" formControlName="user_name">
+                    </mat-form-field>
+                </td>
+            <td><mat-form-field class="example-full-width">
+              <mat-label>First name</mat-label>
+              <input matInput placeholder="first_name" formControlName="first_name">
+            </mat-form-field></td>
+            </tr><tr>
+            <td><mat-form-field class="example-full-width">
+              <mat-label>Last Name </mat-label>
+              <input matInput placeholder="last_name" formControlName="last_name">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" formControlName="email">
+              </mat-form-field></td>
+              </tr><tr>
+              <td><mat-form-field class="example-full-width">
+                <mat-label>Department</mat-label>
+                <input matInput placeholder="department"formControlName="department">
+              </mat-form-field></td>
+              <td>
+                <mat-form-field class="example-full-width">
+                    <mat-label>User Status</mat-label>
+                    <mat-select formControlName="user_status">
+                        <mat-option value="I">Inactive</mat-option>
+                        <mat-option value="A">Active</mat-option>
+                        <mat-option value="T">Terminated</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+            </tr>
+            @if(isEdit){
+                <div class="flex justify-start p-4">
+                    <button  mat-flat-button color="primary" [disabled]="!userform.valid"> Update User</button>
+                  </div> 
+            }
+            @else {
+                
+              <div class="flex justify-start p-4">
+                <button  mat-flat-button color="primary" [disabled]="!userform.valid">Save User</button>
+              </div>
+
+            }
+        </table>
+        
+    </form>
+</div>
